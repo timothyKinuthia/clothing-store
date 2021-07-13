@@ -6,7 +6,7 @@ const sidebar = [
     {name: 'Product', link: '/product/create'},
     {name: 'Category', link: '/category/create'},
     {name: 'Subcategory', link: '/sub-category/create'},
-    {name: 'further category', link: '/sub-category/sub-category/create'}
+    {name: 'Further subcategory', link: '/sub-category/sub-category/create'}
 ]
 const AdminNav = () => {
 

@@ -17,7 +17,7 @@ const SubCategoryCreate = () => {
   const [name, setName] = useState("");
   const [parent, setParent] = useState("");
   const [updateVal, setUpdateVal] = useState({ update: false });
-  const [showSubSubs, setShowSubSubs] = useState(false)
+  const [showSubSubs, setShowSubSubs] = useState(true)
 
   const dispatch = useDispatch();
   const { auth, subSubs, subCategories } = useSelector((state) => ({
@@ -76,7 +76,7 @@ const SubCategoryCreate = () => {
       <div className="flex-1">
         <div className="border-b border-t border-gray-100 flex items-center">
           <h3 className="py-4 text-xl w-1/2 text-center">
-            Create further category
+            Create further subcategory
           </h3>
           <div className="w-1/2 py-1 flex justify-end">
             <span className="mr-6 px-4 py-2.5 bg-black text-white rounded-full">
@@ -115,7 +115,7 @@ const SubCategoryCreate = () => {
               onClick={() => setShowSubSubs((prev) => !prev)}
               className="flex items-center font-semibold text-lg"
             >
-              <span>Show further subcategories</span>
+              <span>{`${showSubSubs ? "Hide futher categories" : "Show further subcategories"}`}</span>
               {showSubSubs ? (
                 <span className="ml-2">
                   <IoChevronUp />
@@ -129,7 +129,7 @@ const SubCategoryCreate = () => {
             {showSubSubs && subSubs.subsubItems.length > 0 &&
               subSubs.subsubItems.map((item) => (
                 <div
-                  className="mt-2 px-4 py-2 bg-bluegray-50 border flex justify-between"
+                  className="mt-2 text-xs sm:text-base px-4 py-2 bg-bluegray-50 border flex justify-between"
                   key={item._id}
                 >
                   {item.name}

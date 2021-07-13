@@ -10,7 +10,7 @@ const CategoryCreate = () => {
 
   const [name, setName] = useState('');
   const [updateVal, setUpdateVal] = useState({ update: false });
-  const [showCategories, setShowCategories] = useState(false)
+  const [showCategories, setShowCategories] = useState(true)
 
   const dispatch = useDispatch();
   const { auth, categories } = useSelector((state) => ({ ...state }));
@@ -72,7 +72,7 @@ const CategoryCreate = () => {
             </form>
             <div className="flex-1 sm:mt-2 sm:py-2 px-2 sm:px-6">
               <button onClick={() => setShowCategories((prev) => !prev)} className="flex items-center font-semibold text-lg">
-                <span>Show Categories</span>
+                <span>{`${showCategories ? "Hide categories" : "Show Categories"}`}</span>
                 {showCategories ? <span className="ml-2"><IoChevronUp/></span> : <span className="ml-2"><IoChevronDown/></span>}
               </button>
               {showCategories && categories.catItems.length > 0 && categories.catItems.map((item) => (

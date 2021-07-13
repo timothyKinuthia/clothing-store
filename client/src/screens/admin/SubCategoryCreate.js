@@ -17,7 +17,7 @@ const SubCategoryCreate = () => {
   const [name, setName] = useState("");
   const [parent, setParent] = useState("");
   const [updateVal, setUpdateVal] = useState({ update: false });
-  const [showSubs, setShowSubs] = useState(false)
+  const [showSubs, setShowSubs] = useState(true)
 
   const dispatch = useDispatch();
   const { auth, subCategories, categories } = useSelector((state) => ({
@@ -115,7 +115,7 @@ const SubCategoryCreate = () => {
               onClick={() => setShowSubs((prev) => !prev)}
               className="flex items-center font-semibold text-lg"
             >
-              <span>Show Sub-categories</span>
+              <span>{`${showSubs ? "Hide subcategories" : "Show subcategories"}`}</span>
               {showSubs ? (
                 <span className="ml-2">
                   <IoChevronUp />
