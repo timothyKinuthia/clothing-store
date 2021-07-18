@@ -12,18 +12,20 @@ exports.upload = async (req, res, next) => {
 
         const { images } = req.body;
 
-        let imgArr = []
+        console.log(images.length)
 
-        for (let image of images) {
+        // let imgArr = []
 
-            const res = await cloudinary.uploader.upload(image, {
-                upload_preset: "r8e1brbw"
-            })
+        // for (let image of images) {
+
+        //     const res = await cloudinary.uploader.upload(image, {
+        //         upload_preset: "r8e1brbw"
+        //     })
     
-            imgArr.push({url: res.secure_url, public_id: res.public_id });
-        }
+        //     imgArr.push({url: res.secure_url, public_id: res.public_id });
+        // }
 
-        res.status(201).json({ imgArr });
+        // res.status(201).json({ imgs: imgArr });
 
     } catch (err) {
         

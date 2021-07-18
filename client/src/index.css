@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-    .btn-primary {
+    /* .btn-primary {
         @apply py-2 px-4 bg-gradient-to-r from-gray-600 via-gray-800 to-gray-600 rounded-lg
     }
     .btn-secondary {
         @apply py-2 px-4 bg-gradient-to-r from-lightblue-500 via-lightblue-800 to-lightblue-500 rounded-lg
-    }
+    } */
 }

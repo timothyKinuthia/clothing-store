@@ -13,7 +13,7 @@ module.exports = {
         'poiret': "'Poiret One', cursive",
       },
       colors: {
-        lightblue: colors.lightBlue,
+        skyblue: colors.sky,
         truegray: colors.trueGray,
         bluegray: colors.blueGray
       }
