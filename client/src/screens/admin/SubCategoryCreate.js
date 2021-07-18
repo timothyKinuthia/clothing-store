@@ -15,7 +15,7 @@ import Dropdown from "./dropdown/Dropdown";
 
 const SubCategoryCreate = () => {
   const [name, setName] = useState("");
-  const [parent, setParent] = useState("");
+  const [subCatParent, setSubCatParent] = useState("");
   const [updateVal, setUpdateVal] = useState({ update: false });
   const [showSubs, setShowSubs] = useState(true)
 
@@ -47,10 +47,10 @@ const SubCategoryCreate = () => {
 
     const catId =
       categories.catItems.length > 0 &&
-      parent !== "" &&
-      categories.catItems.find((p) => p.name === parent)._id;
+      subCatParent !== "" &&
+      categories.catItems.find((p) => p.name === subCatParent)._id;
 
-    if (!name || !parent) {
+    if (!name || !subCatParent) {
       return dispatch({
         type: globalTypes.ALERT,
         payload: { msg: "Field should not be empty!" },
@@ -64,7 +64,7 @@ const SubCategoryCreate = () => {
       dispatch(createSubCategory({ name, catId, token: auth.token }));
     }
     setName("");
-    setParent("");
+    setSubCatParent("");
     setUpdateVal({ update: false });
   };
   return (
@@ -92,8 +92,8 @@ const SubCategoryCreate = () => {
             <div className="w-full space-y-6">
               <Dropdown
                 cats={categories.catItems}
-                parent={parent}
-                setParent={setParent}
+                subCatParent={subCatParent}
+                setSubCatParent={setSubCatParent}
               />
               <input
                 className="w-full font-serif border border-gray-200"

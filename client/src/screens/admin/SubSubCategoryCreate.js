@@ -15,7 +15,7 @@ import Dropdown from "./dropdown/Dropdown";
 
 const SubCategoryCreate = () => {
   const [name, setName] = useState("");
-  const [parent, setParent] = useState("");
+  const [furSubCatParent, setFurSubCatParent] = useState("");
   const [updateVal, setUpdateVal] = useState({ update: false });
   const [showSubSubs, setShowSubSubs] = useState(true)
 
@@ -47,10 +47,10 @@ const SubCategoryCreate = () => {
 
     const subId =
     subCategories.subItems.length > 0 &&
-      parent !== "" &&
-      subCategories.subItems.find((s) => s.name === parent)._id;
+    furSubCatParent !== "" &&
+      subCategories.subItems.find((s) => s.name === furSubCatParent)._id;
 
-    if (!name || !parent) {
+    if (!name || !furSubCatParent) {
       return dispatch({
         type: globalTypes.ALERT,
         payload: { msg: "Field should not be empty!" },
@@ -64,7 +64,7 @@ const SubCategoryCreate = () => {
       dispatch(createSubSubCategory({ name, subId, token: auth.token }));
     }
     setName("");
-    setParent("");
+    setFurSubCatParent("");
     setUpdateVal({ update: false });
   };
   return (
@@ -92,8 +92,8 @@ const SubCategoryCreate = () => {
             <div className="w-full space-y-6">
               <Dropdown
                 subs={subCategories.subItems}
-                parent={parent}
-                setParent={setParent}
+                furSubCatP={furSubCatParent}
+                setFurSubCatP={setFurSubCatParent}
               />
               <input
                 className="w-full font-serif border border-gray-200"
